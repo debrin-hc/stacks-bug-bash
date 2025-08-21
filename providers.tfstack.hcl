@@ -1,5 +1,5 @@
 required_providers {
-  random = {
+  aws = {
     source  = "hashicorp/aws"
     version = "6.9.0"
   }
