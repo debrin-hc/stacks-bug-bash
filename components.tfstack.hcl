@@ -1,27 +1,53 @@
-#component "aws" {
-#  source = "./aws"
-#
-#  inputs = {
-#    aws_access_key = var.aws_access_key
-#    aws_secret_key = var.aws_secret_key
-#    aws_region     = var.aws_region
-#  }
-#
-#  providers = {
-#    aws = provider.aws.this
-#  }
-#}
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
 
-component "random" {
-  source = "./random"
-  
+component "s3" {
+  for_each = var.regions
+
+  source = "./s3"
+
   inputs = {
-    stable_var    = var.stable_var
-    ephemeral_var = var.ephemeral_var
+    region = each.value
   }
 
   providers = {
+    aws    = provider.aws.configurations[each.value]
     random = provider.random.this
   }
 }
+
+#component "lambda" {
+#  for_each = var.regions
+#
+#  source = "./lambda"
+#
+#  inputs = {
+#    region    = var.regions
+#    bucket_id = component.s3[each.value].bucket_id
+#  }
+#
+#  providers = {
+#    aws     = provider.aws.configurations[each.value]
+#    archive = provider.archive.this
+#    local   = provider.local.this
+#    random  = provider.random.this
+#  }
+#}
+
+#component "api_gateway" {
+#  for_each = var.regions
+#
+#  source = "./api-gateway"
+#
+#  inputs = {
+#    region               = each.value
+#    lambda_function_name = component.lambda[each.value].function_name
+#    lambda_invoke_arn    = component.lambda[each.value].invoke_arn
+#  }
+#
+#  providers = {
+#    aws    = provider.aws.configurations[each.value]
+#    random = provider.random.this
+#  }
+#}
 
