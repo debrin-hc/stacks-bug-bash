@@ -14,3 +14,12 @@ variable "aws_region" {
   description = "AWS Region"
   type        = string
 }
+
+variable "stable_var" {
+  type = string
+}
+
+variable "ephemeral_var" {
+  type = string
+  ephemeral = true
+}

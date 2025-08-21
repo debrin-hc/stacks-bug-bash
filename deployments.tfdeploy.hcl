@@ -1,8 +1,11 @@
 deployment "dev" {
   inputs = {
-    aws_access_key = store.varset.vars_block.aws_access_key
-    aws_secret_key = store.varset.vars_block.aws_secret_key
-    aws_region = store.varset.vars_block.stable.aws_region
+    # aws_access_key = store.varset.vars_block.aws_access_key
+    # aws_secret_key = store.varset.vars_block.aws_secret_key
+    # aws_region = store.varset.vars_block.stable.aws_region
+    
+    stable_var    = store.varset.vars_block.stable.stable_var
+    ephemeral_var = store.varset.vars_block.ephemeral_var
   }
 }
 

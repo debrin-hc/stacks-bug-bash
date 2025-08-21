@@ -3,8 +3,14 @@ required_providers {
     source  = "hashicorp/aws"
     version = "6.9.0"
   }
+  
+  random = {
+    source  = "hashicorp/random"
+    version = "~> 3.7.2"
+  }
 }
 
+provider "random" "this" {}
 provider "aws" "this" {
   config {
     region     = var.aws_region
