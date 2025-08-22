@@ -13,7 +13,7 @@ store "varset" "aws" {
 
 deployment "dev" {
   inputs = {
-    regions       = store.varset.aws.stable.aws_region
+    regions       = [ store.varset.aws.stable.aws_region ]
     access_key    = store.varset.aws.aws_access_key
     secret_key    = store.varset.aws.aws_secret_key
     session_token = store.varset.aws.aws_session_token
