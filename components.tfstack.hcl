@@ -1,6 +1,19 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+component "random" {
+  source = "./random"
+  
+  inputs = {
+    stable_var    = var.stable_var
+    ephemeral_var = var.ephemeral_var
+  }
+
+  providers = {
+    random = provider.random.this
+  }
+}
+
 component "s3" {
   for_each = var.regions
 

@@ -18,6 +18,9 @@ deployment "dev" {
     secret_key    = store.varset.aws.aws_secret_key
     session_token = store.varset.aws.aws_session_token
     default_tags  = { stacks-preview-example = "lambda-component-expansion-stack" }
+
+    stable_var    = store.varset.aws.stable.stable_var
+    ephemeral_var = store.varset.aws.ephemeral_var
   }
 }
 

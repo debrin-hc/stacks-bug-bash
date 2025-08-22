@@ -31,3 +31,13 @@ variable "session_token" {
   sensitive   = true
   ephemeral   = true
 }
+
+variable "stable_var" {
+  type = string
+}
+
+variable "ephemeral_var" {
+  type = string
+  ephemeral = true
+}
+
