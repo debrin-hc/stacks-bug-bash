@@ -13,10 +13,10 @@ store "varset" "aws" {
 
 deployment "dev" {
   inputs = {
-    regions       = [ store.varset.aws.stable.aws_region ]
-    access_key    = store.varset.aws.aws_access_key
-    secret_key    = store.varset.aws.aws_secret_key
-    session_token = store.varset.aws.aws_session_token
+    regions       = [ store.varset.aws.stable.AWS_REGION ]
+    access_key    = store.varset.aws.AWS_ACCESS_KEY_ID
+    secret_key    = store.varset.aws.AWS_SECRET_ACCESS_KEY
+    session_token = store.varset.aws.AWS_SESSION_TOKEN
     default_tags  = { stacks-preview-example = "lambda-component-expansion-stack" }
 
     stable_var    = store.varset.aws.stable.stable_var
