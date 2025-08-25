@@ -6,7 +6,7 @@ component "random" {
   
   inputs = {
     stable_var    = var.stable_var
-    ephemeral_var = var.ephemeral_var
+    #ephemeral_var = var.ephemeral_var
   }
 
   providers = {

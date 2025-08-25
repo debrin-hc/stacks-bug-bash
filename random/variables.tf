@@ -4,7 +4,7 @@ variable "stable_var" {
   ephemeral   = false
 }
 
-variable "ephemeral_var" {
-  type      = string
-  ephemeral = true
-}
+#variable "ephemeral_var" {
+#  type      = string
+#  ephemeral = true
+#}

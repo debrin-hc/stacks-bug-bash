@@ -20,7 +20,7 @@ deployment "dev" {
     default_tags  = { stacks-preview-example = "lambda-component-expansion-stack" }
 
     stable_var    = store.varset.aws.stable.stable_var
-    ephemeral_var = store.varset.aws.ephemeral_var
+#    ephemeral_var = store.varset.aws.ephemeral_var
   }
 }
 
