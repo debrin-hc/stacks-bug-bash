@@ -21,6 +21,7 @@ component "s3" {
 
   inputs = {
     region = each.value
+    bucket_tags = var.bucket_tags
   }
 
   providers = {

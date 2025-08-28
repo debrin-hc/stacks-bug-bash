@@ -1,5 +1,5 @@
 variable "bucket_tags" {
-  type = map
+  type = map(string)
   description = "list of tags for bucket"
   #default = {
   #  env = "bug-bash"
