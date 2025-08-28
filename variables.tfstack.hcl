@@ -5,6 +5,11 @@ variable "regions" {
   type = set(string)
 }
 
+variable "bucket_tags" {
+  type        = map(string)
+  ephemeral   = false
+}
+
 variable "default_tags" {
   description = "A map of default tags to apply to all AWS resources"
   type        = map(string)

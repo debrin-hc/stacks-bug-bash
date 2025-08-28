@@ -6,6 +6,11 @@ store "varset" "aws" {
   category = "env"
 }
 
+store "varset" "tags" {
+  name     = "vars_test"
+  category = "terraform"
+}
+
 #store "varset" "regions" {
 #  name     = "aws_creds"
 #  category = "env"
@@ -21,6 +26,8 @@ deployment "dev" {
 
     stable_var    = store.varset.aws.stable.stable_var
 #    ephemeral_var = store.varset.aws.ephemeral_var
+
+    bucket_tags   = store.varset.tags.stable.bucket_tags
   }
 }
 
